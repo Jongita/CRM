@@ -1,0 +1,57 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Pridėti naują įmonę
+        </div>
+        <div class="card-body">
+            <form (ngSubmit)="newCompanySubmit(f)" #f="ngForm">
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end">Pavadinimas:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="name" id="" class="form-control" ngModel required minlength="2" maxlength="30" pattern="[a-zA-Z ]*">
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end">Įmonės kodas:</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="surname" id="" class="form-control">
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end">PVM registracijos kodas:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="position" id="" class="form-control">
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end">Adresas:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="position" id="" class="form-control">
+
+                    </div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end">El. paštas:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="email" id="" class="form-control">
+
+                    </div>
+
+                </div>
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
+                    <div class="col-sm-10">
+                        <input type="number" name="birthYear" id="" class="form-control">
+
+                    </div>
+                </div>
+                <div class="offset-sm-2">
+                    <button type="submit" class="btn btn-success">Pridėti įmonės kontaktus</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
