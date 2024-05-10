@@ -29,7 +29,7 @@
                     <div class="col-sm-10">
                         <input type="text" name="vatNumber" id="" class="form-control" [class.is-invalid]="!inputvatNumber.valid && inputvatNumber.touched" ngModel required pattern="[A-Za-z0-9]{5,20}" #inputvatNumber="ngModel">
                         <div class="helper-block " *ngIf="!inputvatNumber.valid && inputvatNumber.touched">
-                            Laukelis privalomas, įveskite skaičius
+                            Laukelis privalomas, įveskite kodą LTxxxxxx
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                     <div class="col-sm-10">
                         <input type="text" name="address" id="" class="form-control" [class.is-invalid]="!inputaddress.valid && inputaddress.touched" ngModel required #inputaddress="ngModel">
                         <div class="helper-block " *ngIf="!inputaddress.valid && inputaddress.touched">
-                            Laukelis privalomas, įveskite skaičius, arba LT[skaičiai]
+                            Laukelis privalomas, įveskite adresą
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
                     <div class="col-sm-10">
-                        <input type="number" name="phone" id="" class="form-control" placeholder="Įveskite telefono numerį" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required pattern="[0-9]{3}-[0-9]{5}" minlength="8" maxlength="8" #inputphone="ngModel">
+                        <input type="number" name="phone" id="" class="form-control" placeholder="Įveskite telefono numerį" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required minlength="10" maxlength="12" #inputphone="ngModel">
                         <div class="helper-block " *ngIf="!inputphone.valid && inputphone.touched">
                             Telefonas yra privalomas, 10-12 simbolių
                         </div>
