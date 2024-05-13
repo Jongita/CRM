@@ -4,33 +4,33 @@
             Pridėti naują kontaktą
         </div>
         <div class="card-body">
-            <form [formGroup]="contactForm">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Vardas:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" ormControlName="name">
-                        <div class="helper-block d-none">
-                            prenesimas
+                        <input class="form-control" formControlName="name">
+                        <div class="helper-block" *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">
+                            Vardas yra privalomas ir gali sudaryti nuo 2 iki 30 simbolių
                         </div>
                     </div>
                 </div>
 
-                <div class="mb-3 row">
+                <div class=" mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Pavardė:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" ormControlName="surname">
-                        <div class="helper-block d-none">
-                            prenesimas
+                        <input class="form-control" formControlName="surname">
+                        <div class="helper-block" *ngIf="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">
+                            Pavardė yra privaloma ir turi sudaryti nuo 2 iki 30 simbolių
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Pozicija:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end">Pareigos:</label>
                     <div class="col-sm-10">
-                        <input class="form-control" ormControlName="position">
-                        <div class="helper-block d-none">
-                            prenesimas
+                        <input class="form-control" formControlName="position">
+                        <div class="helper-block" *ngIf="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">
+                            Privaloma įvesti pareigas
                         </div>
                     </div>
                 </div>
@@ -38,33 +38,38 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Įmonė:</label>
                     <div class="col-sm-10">
-                        <select class="form-control" ormControlName="company">
+                        <select class="form-control" formControlName="company">
                             <option></option>
                         </select>
-                        <div class="helper-block d-none">
-                            prenesimas
+                        <div class="helper-block" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
+                            Pasirinkite įmonę
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
-                    <div class="col-sm-10">
-                        <input class="form-control" ormControlName="phones">
-                        <div class="helper-block d-none">
-                            prenesimas
+                    <div class="col-sm-9">
+                        <div class="row" formArrayName="phones">
+                            <div class="col-sm-12 mb-3" *ngFor="let phone of phones; let i=index">
+                                <input type="text" class="form-control" [formControlName]="i">
+                            </div>
                         </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-secondary me-3">Pridėti papildomą telefoną</button>
+                            <button type="button" class="btn btn-danger">Pašalinti papildomą telefoną</button>
+                        </div>
+
+
                     </div>
                 </div>
+                <hr>
 
                 <div class="mb-3 row">
                     <div class="col-sm-2 offset-sm-2">
-                        <button class="btn btn-success">Pridėti</button>
+                        <button class="btn btn-success" [disabled]="!contactForm.valid">Pridėti</button>
                     </div>
-
                 </div>
-
-
 
             </form>
         </div>
