@@ -8,9 +8,9 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Pavadinimas:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="name" id="" class="form-control" [class.is-invalid]="!inputName.valid && inputName.touched" ngModel required minlength="2" maxlength="30" pattern="[a-zA-Z ]*" #inputName="ngModel">
+                        <input type="text" name="name" id="" class="form-control" [class.is-invalid]="!inputName.valid && inputName.touched" ngModel required minlength="2" maxlength="30" pattern="[a-zA-Z \-]*" #inputName="ngModel">
                         <div class="helper-block " *ngIf="!inputName.valid && inputName.touched">
-                            Laukelis privalomas, turi būti 2-30 simbolių ilgio
+                            Pavadinimas turi sudaryti 2 iki 30 simbolių, bei leidžiami simboliai " " ir "-"
                         </div>
                     </div>
 
@@ -18,18 +18,18 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Įmonės kodas:</label>
                     <div class="col-sm-10">
-                        <input type="number" name="code" id="" class="form-control" [class.is-invalid]="!inputcode.valid && inputcode.touched" ngModel required #inputcode="ngModel">
+                        <input type="number" name="code" id="" class="form-control" [class.is-invalid]="!inputcode.valid && inputcode.touched" ngModel required pattern="[0-9]*" #inputcode="ngModel">
                         <div class="helper-block " *ngIf="!inputcode.valid && inputcode.touched">
-                            Laukelis privalomas, įveskite skaičius
+                            Įmonės kodą turi sudaryti tik skaičiai
                         </div>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">PVM registracijos kodas:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="vatNumber" id="" class="form-control" [class.is-invalid]="!inputvatNumber.valid && inputvatNumber.touched" ngModel required pattern="[A-Za-z0-9]{5,20}" #inputvatNumber="ngModel">
+                        <input type="text" name="vatNumber" id="" class="form-control" [class.is-invalid]="!inputvatNumber.valid && inputvatNumber.touched" ngModel required pattern="(LT)?([0-9]{9}|[0-9]{12})*" #inputvatNumber="ngModel">
                         <div class="helper-block " *ngIf="!inputvatNumber.valid && inputvatNumber.touched">
-                            Laukelis privalomas, įveskite kodą LTxxxxxx
+                            PVM mokėtojo kodo formatas arba 12 skaičių arba LT ir 9 skaičiai.
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
                     <div class="col-sm-10">
-                        <input type="number" name="phone" id="" class="form-control" placeholder="Įveskite telefono numerį" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required minlength="10" maxlength="12" #inputphone="ngModel">
+                        <input type="text" name="phone" id="" class="form-control" placeholder="+370xxxxxxx" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required appPhoneValidat #inputphone="ngModel">
                         <div class="helper-block " *ngIf="!inputphone.valid && inputphone.touched">
                             Telefonas yra privalomas, 10-12 simbolių
                         </div>
