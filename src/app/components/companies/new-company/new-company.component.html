@@ -55,9 +55,9 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="phone" id="" class="form-control" placeholder="+370xxxxxxx" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required appPhoneValidat #inputphone="ngModel">
+                        <input type="text" name="phone" id="" class="form-control" placeholder="+370xxxxxxx" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required appPhoneValidator #inputphone="ngModel">
                         <div class="helper-block " *ngIf="!inputphone.valid && inputphone.touched">
-                            Telefonas yra privalomas, 10-12 simbolių
+                            Telefonas yra privalomas, nuo 10 iki 12 simbolių
                         </div>
 
                     </div>
