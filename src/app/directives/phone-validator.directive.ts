@@ -20,7 +20,7 @@ export class PhoneValidatorDirective implements Validator {
 
 
     if (!phone.startsWith("+") || phone.length < 10 || phone.length > 12) {
-        return { error:"Telefonas turi buti nuo 10 iki 12 skaitmenų ir prasidėti su +"};
+        return { error:"turi buti nuo 10 iki 12 skaitmenų ir prasidėti su +"};
     }else{
       return null;
     }

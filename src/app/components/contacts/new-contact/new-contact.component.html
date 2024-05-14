@@ -39,7 +39,8 @@
                     <label for="" class="col-sm-2 col-form-label text-end">Įmonė:</label>
                     <div class="col-sm-9">
                         <select class="form-control" formControlName="company">
-                            <option></option>
+                            <option>ASUS</option>
+                            <option>Compensa</option>
                         </select>
                         <div class="helper-block d-none">
                             Pasirinkite įmonę
@@ -57,12 +58,11 @@
                         </div>
                         <div class="mb-3">
                             <button type="button" class="btn btn-primary me-3" (click)="addPhone()">Pridėti telefoną</button>
-                            <button type="button" class="btn btn-danger float-end">Pašalinti telefoną</button>
+                            <button type="button" class="btn btn-danger float-end" (click)="removePhone()">Pašalinti telefoną</button>
                         </div>
-
-
                     </div>
                 </div>
+
                 <hr>
 
                 <div class="mb-3 row">
