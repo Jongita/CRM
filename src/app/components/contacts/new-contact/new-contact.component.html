@@ -7,7 +7,7 @@
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Vardas:</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input class="form-control" formControlName="name">
                         <div class="helper-block" *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">
                             Vardas yra privalomas ir gali sudaryti nuo 2 iki 30 simbolių
@@ -17,7 +17,7 @@
 
                 <div class=" mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Pavardė:</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input class="form-control" formControlName="surname">
                         <div class="helper-block" *ngIf="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">
                             Pavardė yra privaloma ir turi sudaryti nuo 2 iki 30 simbolių
@@ -27,21 +27,21 @@
 
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Pareigos:</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <input class="form-control" formControlName="position">
                         <div class="helper-block" *ngIf="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">
-                            Privaloma įvesti pareigas
+                            Įveskite pareigas
                         </div>
                     </div>
                 </div>
 
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Įmonė:</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <select class="form-control" formControlName="company">
                             <option></option>
                         </select>
-                        <div class="helper-block" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
+                        <div class="helper-block d-none">
                             Pasirinkite įmonę
                         </div>
                     </div>
@@ -56,8 +56,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-secondary me-3">Pridėti papildomą telefoną</button>
-                            <button type="button" class="btn btn-danger">Pašalinti papildomą telefoną</button>
+                            <button type="button" class="btn btn-primary me-3" (click)="addPhone()">Pridėti telefoną</button>
+                            <button type="button" class="btn btn-danger float-end">Pašalinti telefoną</button>
                         </div>
 
 

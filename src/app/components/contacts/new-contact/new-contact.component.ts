@@ -18,8 +18,10 @@ export class NewContactComponent {
       'surname':new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]),
       'position':new FormControl(null, Validators.required),
       'company':new FormControl(null, Validators.required),
-      'phones':new FormArray([])
-      // (null, [Validators.required, this.validatePhone]),
+      'phones':new FormArray([
+        new FormControl(null, [Validators.required,this.validatePhone] )
+      ])
+      
 
     })
   }
@@ -37,7 +39,7 @@ export class NewContactComponent {
       return {error: 'Klaida'};
     }
   }
-
+ 
   get phones() {
     return (this.contactForm.get('phones') as FormArray).controls;
   }
