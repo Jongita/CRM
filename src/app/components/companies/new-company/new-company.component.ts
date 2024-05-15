@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ValidationErrors } from '@angular/forms';
 import { PhoneValidatorDirective } from '../../../directives/phone-validator.directive';
+import { CompaniesService } from '../../../services/companies.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-new-company',
@@ -11,9 +13,25 @@ import { PhoneValidatorDirective } from '../../../directives/phone-validator.dir
   styleUrl: './new-company.component.css'
 })
 export class NewCompanyComponent {
+  
+
+  constructor(private companiesService: CompaniesService){
+   
+  }
 
   public newCompanySubmit(f:NgForm) {
+    console.log(f.form.value);
+    this.companiesService.addCompany(f.form.value).subscribe(()=>{
 
+    })
+  }
+  uniqueCodeNumber(f:NgForm):Promise<ValidationErrors | null> | Observable<ValidationErrors | null>{
+    const promise=new Promise<ValidationErrors | null>((resolve, reject)=>{
+      this.companiesService.loadCompanies().subscribe((data)=>{
+        resolve(null);
+      })
+    })
+    return promise;
   }
 
 }

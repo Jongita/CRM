@@ -7,5 +7,6 @@ export class Contact {
     public surname: string|null = null;
     public position: string|null = null;
     public company: string|null = null;
+    public company_company: Company|null = null;
     public phones: string[] = [];
 }

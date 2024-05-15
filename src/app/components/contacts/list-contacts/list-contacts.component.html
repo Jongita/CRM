@@ -1,0 +1,38 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header">
+            Kontaktai
+        </div>
+        <div class="card-body">
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Vardas</th>
+                        <th>Pavardė</th>
+                        <th>Pareigos</th>
+                        <th>Įmonė</th>
+                        <th>Telefonas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let contact of contacts; let i=index">
+                        <td>{{ contact.name}}</td>
+                        <td>{{ contact.surname}}</td>
+                        <td>{{ contact.position}}</td>
+                        <td>{{ contact.company_company?.name}} </td>
+                        <td>
+                            <div *ngFor="let phone of contact.phones">
+                                {{phone}}
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>

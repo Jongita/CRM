@@ -19,7 +19,7 @@ export class PhoneValidatorDirective implements Validator {
     const phone: string = control.value;
 
 
-    if (!phone.startsWith("+") || phone.length < 10 || phone.length > 12) {
+    if (phone.length < 10 || phone.length > 12) {
         return { error:"turi buti nuo 10 iki 12 skaitmenų ir prasidėti su +"};
     }else{
       return null;
@@ -27,3 +27,6 @@ export class PhoneValidatorDirective implements Validator {
   }
 
 }
+
+
+// !phone.startsWith("+")
