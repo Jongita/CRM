@@ -4,6 +4,7 @@ import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Va
 import { ContactsService } from '../../../services/contacts.service';
 import { CompaniesService } from '../../../services/companies.service';
 import { Company } from '../../../models/company';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -11,11 +12,76 @@ import { Company } from '../../../models/company';
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule, FormsModule],
   templateUrl: './new-contact.component.html',
-  styleUrl: './new-contact.component.css'
+  styleUrl: './new-contact.component.css',
+  animations: [
+    trigger("phoneInput", [
+      state("*",style({
+        // transform:"translateX(0px) translateY(0px)",
+        height:'38px'
+      })),
+      transition("void => *",[
+        style({
+          height:'0px',
+          display:"none",
+          // transform:"translateX(-2000px) translateY(300px)"
+        }),
+        animate(500,style({
+          height:'38px',
+          display:"block",
+          // transform:"translateX(-2000px) translateY(300px)"
+        })),
+        animate(500)
+      ]),
+       transition("* => void",[
+        animate(750,style({
+          height:'38px',
+          transform:"translateX(3000px)"
+        })),
+        animate(750,style({
+          height:'0px',
+          transform:"translateX(3000px)"
+        }))
+      ])
+    ]),
+    trigger("inputFields",[
+      state('normal',style({
+        'font-size':'16px',
+        'height':'36px'
+      })),
+      state('focused',style({
+        'font-size':'24px',
+        'height':'42px'
+      })),
+      transition('* <=> *',[
+        animate(500)
+      ])
+    ]),
+    trigger('caption',[
+      state('normal', style({
+        'color':'#000000',
+        // transform:'translateX(0px)'
+      })),
+      state('clicked1',style({
+        'color':'#00ff00',
+        // transform:'translateX(-2000px)'
+      })),
+      state('clicked2',style({
+        'color':'#ff0000',
+      })),
+      transition('* <=> *',[
+        animate(1000)
+      ]),
+    ])
+  ]
 })
+
 export class NewContactComponent {
   public contactForm: FormGroup;
   public companies: Company[] = [];
+
+  public captionState='normal';
+
+  public inputState=['normal','normal','normal','normal','normal']
 
   constructor(private contactService: ContactsService, private companiesService: CompaniesService){
     this.contactForm=new FormGroup({
@@ -34,6 +100,13 @@ export class NewContactComponent {
     })
   }
 
+  public inputFocus(fieldId:number, state:boolean){
+    if(state==true){
+      this.inputState[fieldId]='focused';
+    }else{
+      this.inputState[fieldId]='normal'
+    }
+  }
 
   onSubmit(){
     console.log(this.contactForm);
@@ -78,6 +151,21 @@ export class NewContactComponent {
 
   public removePhone(){
     (this.contactForm.get('phones') as FormArray).removeAt(-1)
+  }
+
+  public captionClick(){
+    switch (this.captionState) {
+      case 'normal':
+        this.captionState='clicked1';
+        break;
+      case 'clicked1':
+          this.captionState='clicked2';
+          break;
+      case 'clicked2':
+        this.captionState='normal';
+        break;  
+    }
+    
   }
 
 }

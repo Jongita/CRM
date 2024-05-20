@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header" [@caption]="captionState" (click)="captionClick()">
             Pridėti naują kontaktą
         </div>
         <div class="card-body">
@@ -8,7 +8,7 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Vardas:</label>
                     <div class="col-sm-9">
-                        <input class="form-control" formControlName="name">
+                        <input class="form-control" formControlName="name" [@inputFields]="inputState[0]" (focus)="inputFocus(0, true)" (blur)="inputFocus(0, false)">
                         <div class="helper-block" *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">
                             Vardas yra privalomas ir gali sudaryti nuo 2 iki 30 simbolių
                         </div>
@@ -18,7 +18,7 @@
                 <div class=" mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Pavardė:</label>
                     <div class="col-sm-9">
-                        <input class="form-control" formControlName="surname">
+                        <input class="form-control" formControlName="surname" [@inputFields]="inputState[1]" (focus)="inputFocus(1, true)" (blur)="inputFocus(1, false)">
                         <div class="helper-block" *ngIf="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">
                             Pavardė yra privaloma ir turi sudaryti nuo 2 iki 30 simbolių
                         </div>
@@ -28,7 +28,7 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Pareigos:</label>
                     <div class="col-sm-9">
-                        <input class="form-control" formControlName="position">
+                        <input class="form-control" formControlName="position" [@inputFields]="inputState[2]" (focus)="inputFocus(2, true)" (blur)="inputFocus(2, false)">
                         <div class="helper-block" *ngIf="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">
                             Įveskite pareigas
                         </div>
@@ -38,11 +38,11 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Įmonė:</label>
                     <div class="col-sm-9">
-                        <select class="form-control" formControlName="company">
+                        <select class="form-control" formControlName="company" [@inputFields]="inputState[3]" (focus)="inputFocus(3, true)" (blur)="inputFocus(3, false)">
                             <option *ngFor="let company of companies; let i=index" [value]="company.id">{{company.name}}</option>
 
                         </select>
-                        <div class="helper-block d-none">
+                        <div class="helper-block" *ngIf="!contactForm.get('company')?.valid && contactForm.get('company')?.touched">
                             Pasirinkite įmonę
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                     <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
                     <div class="col-sm-9">
                         <div class="row" formArrayName="phones">
-                            <div class="col-sm-12 mb-3" *ngFor="let phone of phones; let i=index">
-                                <input type="text" class="form-control" [formControlName]="i">
+                            <div class="col-sm-12 mb-3" *ngFor="let phone of phones; let i=index" [@phoneInput]>
+                                <input type="text" class="form-control" [formControlName]="i" [@inputFields]="inputState[4]" (focus)="inputFocus(4, true)" (blur)="inputFocus(4, false)">
                             </div>
                         </div>
                         <div class="mb-3">
