@@ -17,20 +17,21 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     trigger("phoneInput", [
       state("*",style({
         // transform:"translateX(0px) translateY(0px)",
+        opacity:1,
         height:'38px'
       })),
       transition("void => *",[
         style({
           height:'0px',
-          display:"none",
+         opacity:0,
           // transform:"translateX(-2000px) translateY(300px)"
         }),
-        animate(500,style({
+        animate(2000,style({
           height:'38px',
-          display:"block",
+          opacity:1,
           // transform:"translateX(-2000px) translateY(300px)"
         })),
-        animate(500)
+        animate(2000)
       ]),
        transition("* => void",[
         animate(750,style({
