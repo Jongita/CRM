@@ -47,11 +47,11 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     trigger("inputFields",[
       state('normal',style({
         'font-size':'16px',
-        'height':'36px'
+        'height':'40px'
       })),
       state('focused',style({
         'font-size':'24px',
-        'height':'42px'
+        'height':'50px'
       })),
       transition('* <=> *',[
         animate(500)

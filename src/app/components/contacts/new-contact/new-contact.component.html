@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="card">
-        <div class="card-header" [@caption]="captionState" (click)="captionClick()">
+        <div class="card-header text-white bg-secondary" [@caption]="captionState" (click)="captionClick()">
             Pridėti naują kontaktą
         </div>
         <div class="card-body">
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <button type="button" class="btn btn-primary me-3" (click)="addPhone()">Pridėti telefoną</button>
+                            <button type="button" class="btn btn-success me-3" (click)="addPhone()">Pridėti telefoną</button>
                             <button type="button" class="btn btn-danger float-end" (click)="removePhone()">Pašalinti telefoną</button>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
 
                 <div class="mb-3 row">
                     <div class="col-sm-2 offset-sm-2">
-                        <button class="btn btn-success" [disabled]="!contactForm.valid">Pridėti</button>
+                        <button class="btn btn-primary" [disabled]="!contactForm.valid">Pridėti</button>
                     </div>
                 </div>
 

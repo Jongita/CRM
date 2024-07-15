@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white bg-secondary">
             Pridėti naują įmonę
         </div>
         <div class="card-body">
@@ -19,9 +19,9 @@
                 <div class="mb-3 row">
                     <label for="" class="col-sm-2 col-form-label text-end">Įmonės kodas:</label>
                     <div class="col-sm-10">
-                        <input type="number" name="code" id="" class="form-control" [class.is-invalid]="!inputcode.valid && inputcode.touched" ngModel required pattern="[0-9]*" #inputcode="ngModel">
+                        <input type="text" name="code" id="" class="form-control" [class.is-invalid]="!inputcode.valid && inputcode.touched" ngModel required minlength="6" maxlength="10" pattern="[0-9]*" #inputcode="ngModel">
                         <div class="helper-block " *ngIf="!inputcode.valid && inputcode.touched">
-                            Įmonės kodą turi sudaryti tik skaičiai
+                            Įmonės kodas privalomas ir turi sudaryti tik skaičiai (6-10 simbolių)
                         </div>
 
                     </div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="offset-sm-2">
-                    <button type="submit" class="btn btn-success" [disabled]="!f.valid">Pridėti įmonės kontaktus</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Pridėti įmonės kontaktus</button>
                 </div>
 
             </form>
