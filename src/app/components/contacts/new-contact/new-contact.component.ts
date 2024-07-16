@@ -26,12 +26,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
          opacity:0,
           // transform:"translateX(-2000px) translateY(300px)"
         }),
-        animate(2000,style({
+        animate(1000,style({
           height:'38px',
           opacity:1,
           // transform:"translateX(-2000px) translateY(300px)"
         })),
-        animate(2000)
+        animate(1000)
       ]),
        transition("* => void",[
         animate(750,style({

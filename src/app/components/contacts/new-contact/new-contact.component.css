@@ -1,0 +1,13 @@
+@media (max-width: 360px) {
+
+    .btn-success,
+    .btn-danger {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn-success:last-child {
+        margin-bottom: 0;
+    }
+}

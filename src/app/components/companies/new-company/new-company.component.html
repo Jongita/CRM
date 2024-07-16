@@ -6,18 +6,19 @@
         <div class="card-body">
             <form (ngSubmit)="newCompanySubmit(f)" #f="ngForm">
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Pavadinimas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Pavadinimas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Pavadinimas:</label>
                     <div class="col-sm-10">
                         <input type="text" name="name" id="" class="form-control" [class.is-invalid]="!inputName.valid && inputName.touched" ngModel required minlength="2" maxlength="30" pattern="[a-zA-Z \-]*" #inputName="ngModel">
                         <div class="helper-block " *ngIf="!inputName.valid && inputName.touched">
                             Pavadinimas turi sudaryti 2 iki 30 simbolių, bei leidžiami simboliai " " ir "-"
                         </div>
-
                     </div>
 
                 </div>
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Įmonės kodas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Įmonės kodas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Įmonės kodas:</label>
                     <div class="col-sm-10">
                         <input type="text" name="code" id="" class="form-control" [class.is-invalid]="!inputcode.valid && inputcode.touched" ngModel required minlength="6" maxlength="10" pattern="[0-9]*" #inputcode="ngModel">
                         <div class="helper-block " *ngIf="!inputcode.valid && inputcode.touched">
@@ -28,7 +29,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">PVM registracijos kodas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">PVM registracijos kodas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">PVM registracijos kodas:</label>
                     <div class="col-sm-10">
                         <input type="text" name="vatNumber" id="" class="form-control" [class.is-invalid]="!inputvatNumber.valid && inputvatNumber.touched" ngModel required pattern="(LT)?([0-9]{9}|[0-9]{12})*" #inputvatNumber="ngModel">
                         <div class="helper-block " *ngIf="!inputvatNumber.valid && inputvatNumber.touched">
@@ -37,7 +39,8 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Adresas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Adresas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Adresas:</label>
                     <div class="col-sm-10">
                         <input type="text" name="address" id="" class="form-control" [class.is-invalid]="!inputaddress.valid && inputaddress.touched" ngModel required #inputaddress="ngModel">
                         <div class="helper-block " *ngIf="!inputaddress.valid && inputaddress.touched">
@@ -46,7 +49,8 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">El. paštas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">El. paštas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">El. paštas:</label>
                     <div class="col-sm-10">
                         <input type="text" name="email" id="" class="form-control" [class.is-invalid]="!inputemail.valid && inputemail.touched" ngModel required email #inputemail="ngModel">
                         <div class="helper-block " *ngIf="!inputemail.valid && inputemail.touched">
@@ -56,7 +60,8 @@
 
                 </div>
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Telefonas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Telefonas:</label>
                     <div class="col-sm-10">
                         <input type="text" name="phone" id="" class="form-control" placeholder="+370xxxxxxx" [class.is-invalid]="!inputphone.valid && inputphone.touched" ngModel required appPhoneValidator #inputphone="ngModel">
                         <div class="helper-block " *ngIf="!inputphone.valid && inputphone.touched">

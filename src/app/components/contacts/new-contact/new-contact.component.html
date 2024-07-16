@@ -6,7 +6,8 @@
         <div class="card-body">
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Vardas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Vardas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Vardas:</label>
                     <div class="col-sm-9">
                         <input class="form-control" formControlName="name" [@inputFields]="inputState[0]" (focus)="inputFocus(0, true)" (blur)="inputFocus(0, false)">
                         <div class="helper-block" *ngIf="!contactForm.get('name')?.valid && contactForm.get('name')?.touched">
@@ -15,8 +16,9 @@
                     </div>
                 </div>
 
-                <div class=" mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Pavardė:</label>
+                <div class="mb-3 row">
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Pavardė:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Pavardė:</label>
                     <div class="col-sm-9">
                         <input class="form-control" formControlName="surname" [@inputFields]="inputState[1]" (focus)="inputFocus(1, true)" (blur)="inputFocus(1, false)">
                         <div class="helper-block" *ngIf="!contactForm.get('surname')?.valid && contactForm.get('surname')?.touched">
@@ -26,7 +28,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Pareigos:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Pareigos:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Pareigos:</label>
                     <div class="col-sm-9">
                         <input class="form-control" formControlName="position" [@inputFields]="inputState[2]" (focus)="inputFocus(2, true)" (blur)="inputFocus(2, false)">
                         <div class="helper-block" *ngIf="!contactForm.get('position')?.valid && contactForm.get('position')?.touched">
@@ -36,7 +39,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Įmonė:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Įmonė:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Įmonė:</label>
                     <div class="col-sm-9">
                         <select class="form-control" formControlName="company" [@inputFields]="inputState[3]" (focus)="inputFocus(3, true)" (blur)="inputFocus(3, false)">
                             <option *ngFor="let company of companies; let i=index" [value]="company.id">{{company.name}}</option>
@@ -49,7 +53,8 @@
                 </div>
 
                 <div class="mb-3 row">
-                    <label for="" class="col-sm-2 col-form-label text-end">Telefonas:</label>
+                    <label for="" class="col-sm-2 col-form-label text-end d-none d-md-block">Telefonas:</label>
+                    <label for="" class="col-form-label d-block d-md-none">Telefonas:</label>
                     <div class="col-sm-9">
                         <div class="row" formArrayName="phones">
                             <div class="col-sm-12 mb-3" *ngFor="let phone of phones; let i=index" [@phoneInput]>
