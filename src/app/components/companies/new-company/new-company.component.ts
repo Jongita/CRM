@@ -22,18 +22,10 @@ export class NewCompanyComponent {
   public newCompanySubmit(f:NgForm) {
     console.log(f.form.value);
     this.companiesService.addCompany(f.form.value).subscribe(()=>{
-
+    f.resetForm();
     })
   }
 
-  // uniqueCodeNumber(f:NgForm):Promise<ValidationErrors | null> | Observable<ValidationErrors | null>{
-  //   const promise=new Promise<ValidationErrors | null>((resolve, reject)=>{
-  //     this.companiesService.loadCompanies().subscribe((data)=>{
-  //       resolve(null);
-  //     })
-  //   })
-  //   return promise;
-  // }
 
   
 
